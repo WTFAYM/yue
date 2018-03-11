@@ -1,0 +1,2 @@
+webpackJsonp([4],{fyrb:function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0});var r={render:function(){var t=this.$createElement;return(this._self._c||t)("div",{staticClass:"test"})},staticRenderFns:[]};var u=n("VU/8")({data:function(){return{}},methods:{},created:function(){},mounted:function(){}},r,!1,function(t){n("pruo")},null,null);e.default=u.exports},pruo:function(t,e){}});
+//# sourceMappingURL=4.9a90519e1efc430c0d40.js.map
