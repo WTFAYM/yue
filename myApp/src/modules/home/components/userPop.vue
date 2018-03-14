@@ -14,12 +14,20 @@
       </div>
     </div>
     <div class="userPop-content">
-      <div class="userPop-menuItem" ripple="ripple">
+      <div class="userPop-menuItem" ripple="ripple" @click="toHome()">
         <div class="userPop-menuItem-icon">
           <img src="../../../assets/icon/首页.png">
         </div>
         <div class="userPop-menuItem-title">
           <span>首页</span>
+        </div>
+      </div>
+      <div class="userPop-menuItem" ripple="ripple" @click="toActive()">
+        <div class="userPop-menuItem-icon">
+          <img src="../../../assets/icon/添加.png">
+        </div>
+        <div class="userPop-menuItem-title">
+          <span>发起活动</span>
         </div>
       </div>
       <div class="userPop-menuItem" ripple="ripple">
@@ -126,12 +134,21 @@
     },
     methods: {
       jumpToUser() {
+        console.log(this.$store.state.userInfo);
         if (this.$store.state.userInfo) {
           this.$router.push({name: 'user_info'});
         } else {
           this.$router.push({name: 'login'});
         }
-      }
+      },
+      toHome() {
+        this.$store.commit('setSelected', 0);
+        this.$emit('hideUserPop');
+        this.$router.push({name: 'home_home'})
+      },
+      toActive() {
+        this.$router.push({name: 'active_add'});
+      },
     },
     created() {
 

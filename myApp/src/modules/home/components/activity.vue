@@ -43,12 +43,16 @@
         }
       }
       .actItem-bottom {
-        text-align: center;
         overflow: hidden;
-        height: 40%;
+        height: calc(40% - 10px);
+        padding: 5px;
         span {
           width: 100%;
+          text-align: left;
           text-overflow: ellipsis;
+          white-space: nowrap;
+          overflow: hidden;
+          display: inline-block;
         }
       }
     }

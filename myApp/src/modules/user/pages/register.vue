@@ -142,10 +142,10 @@
     },
     methods: {
       login() {
-        this.$router.back();
+        this.$router.replace({name: 'login'});
       },
       back() {
-        this.$router.back();
+        this.$router.replace({name: 'login'});
       },
       register() {
 //      注册验证，成功后返回到登录页面并且重新登录
@@ -157,7 +157,7 @@
           });
           return
         }
-        this.$router.back();
+        this.$router.replace({name: 'login'});
       },
     }
   }
@@ -214,6 +214,7 @@
       position: absolute;
       left: 0;
       bottom: -85px;
+      z-index: -1;
       img {
         max-width: 100%;
       }
@@ -301,6 +302,8 @@
   }
 
   .loginToast {
+    width: 90%;
+    border-radius: 20px;
     top: 110px !important;
     background: rgba(0, 0, 0, 0.5) !important;
   }

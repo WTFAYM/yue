@@ -8,9 +8,9 @@
  to you under the Apache License, Version 2.0 (the
  "License"); you may not use this file except in compliance
  with the License.  You may obtain a copy of the License at
- 
+
      http://www.apache.org/licenses/LICENSE-2.0
- 
+
  Unless required by applicable law or agreed to in writing,
  software distributed under the License is distributed on an
  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
@@ -630,9 +630,9 @@ var nextGuid = 1;
  * This object is used to define and control firing of events for
  * cordova initialization, as well as for custom events thereafter.
  *
- * The order of events during page load and Cordova startup is as follows:
+ * The order of events during pages load and Cordova startup is as follows:
  *
- * onDOMContentLoaded*         Internal event that is received when the web page is loaded and parsed.
+ * onDOMContentLoaded*         Internal event that is received when the web pages is loaded and parsed.
  * onNativeReady*              Internal event that indicates the Cordova native side is ready.
  * onCordovaReady*             Internal event fired when all Cordova JavaScript objects have been created.
  * onDeviceReady*              User event fired to indicate that Cordova is ready
@@ -850,7 +850,7 @@ Channel.prototype.fire = function (e) {
 };
 
 // defining them here so they are ready super fast!
-// DOM event that is received when the web page is loaded and parsed.
+// DOM event that is received when the web pages is loaded and parsed.
 channel.createSticky('onDOMContentLoaded');
 
 // Event to indicate the Cordova native side is ready.
@@ -995,7 +995,7 @@ function pollOnceFromOnlineEvent() {
 
 function pollOnce(opt_fromOnlineEvent) {
     if (bridgeSecret < 0) {
-        // This can happen when the NativeToJsMessageQueue resets the online state on page transitions.
+        // This can happen when the NativeToJsMessageQueue resets the online state on pages transitions.
         // We know there's nothing to retrieve, so no need to poll.
         return;
     }
@@ -1308,7 +1308,7 @@ channel.join(function () {
     // Fire event to notify that all objects are created
     channel.onCordovaReady.fire();
 
-    // Fire onDeviceReady event once page has fully loaded, all
+    // Fire onDeviceReady event once pages has fully loaded, all
     // constructors have run and cordova info has been received from native
     // side.
     channel.join(function () {
@@ -1432,7 +1432,7 @@ channel.join(function () {
     // Fire event to notify that all objects are created
     channel.onCordovaReady.fire();
 
-    // Fire onDeviceReady event once page has fully loaded, all
+    // Fire onDeviceReady event once pages has fully loaded, all
     // constructors have run and cordova info has been received from native
     // side.
     channel.join(function () {
@@ -1790,14 +1790,14 @@ module.exports = {
 
     /**
     * Clear web history in this web view.
-    * Instead of BACK button loading the previous web page, it will exit the app.
+    * Instead of BACK button loading the previous web pages, it will exit the app.
     */
     clearHistory:function() {
         exec(null, null, APP_PLUGIN_NAME, "clearHistory", []);
     },
 
     /**
-    * Go to previous page displayed.
+    * Go to previous pages displayed.
     * This is the same as pressing the backbutton on Android device.
     */
     backHistory:function() {

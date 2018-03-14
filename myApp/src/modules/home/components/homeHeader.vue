@@ -12,7 +12,7 @@
               v-model="showUserPop"
               position="left"
               popup-transition="popup-slide">
-      <user-pop></user-pop>
+      <user-pop @hideUserPop='hideUserPop'></user-pop>
     </mt-popup>
   </div>
 </template>

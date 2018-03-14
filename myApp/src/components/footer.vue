@@ -21,8 +21,16 @@
 <script>
   export default {
     data() {
-      return {
-        selected: 0
+      return {}
+    },
+    computed: {
+      selected: {
+        get() {
+          return this.$store.state.selected
+        },
+        set(selected) {
+          this.$store.commit('setSelected', selected);
+        }
       }
     },
     created() {

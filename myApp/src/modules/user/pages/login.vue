@@ -19,7 +19,7 @@
             <img src="../../../assets/icon/user4.png">
           </div>
           <div class="inputItem-input">
-            <mt-field placeholder="请输入手机号" type="tel" :state="phoneState" v-model="phone"
+            <mt-field placeholder="请输入手机号" type="tel" v-model="phone"
                       :attr="{ maxlength: 11}"></mt-field>
           </div>
         </div>
@@ -122,10 +122,10 @@
         this.$router.back();
       },
       forgot() {
-        this.$router.push({name: 'forgot'});
+        this.$router.replace({name: 'forgot'});
       },
       register() {
-        this.$router.push({name: 'register'})
+        this.$router.replace({name: 'register'})
       },
       login() {
 //        登录验证
@@ -139,8 +139,21 @@
           });
         }
         else if (this.phone.match(/^1[3|4|5|7|8][0-9]{9}$/) && this.password.length >= 8) {
-          if (this.password.match(reg))
-            console.log('ads');
+          if (this.password.match(reg)) {
+            this.$store.state.userInfo = {
+              phone: this.phone,
+              password: this.password,
+              avatar: ''
+            }
+
+            this.$router.replace({name: 'home_home'})
+          } else {
+            Toast({
+              message: '密码要包含数字，字母，特殊符号哦！',
+              duration: 3000,
+              className: 'loginToast'
+            });
+          }
         } else {
           Toast({
             message: '要填写正确的账号和密码哦！',
@@ -206,6 +219,7 @@
         position: absolute;
         left: 0;
         bottom: -85px;
+        z-index: -1;
         img {
           max-width: 100%;
         }
@@ -291,6 +305,8 @@
   }
 
   .loginToast {
+    width: 90%;
+    border-radius: 20px;
     top: 110px !important;
     background: rgba(0, 0, 0, 0.5) !important;
   }

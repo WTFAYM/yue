@@ -90,7 +90,6 @@
         topStatus: '',
         translate: 0,
         moveTranslate: 0,
-        showUserPop: false,
         showSearchPop: false,
       }
     },
@@ -136,12 +135,6 @@
 //          this.isTop = false;
 //        }
 //      },
-      handleUserPop() {
-        this.showUserPop = true;
-      },
-      hideUserPop() {
-        this.showUserPop = false;
-      },
       handleSearchPop() {
         this.showSearchPop = true;
       },
@@ -178,6 +171,7 @@
     }
     .home-tabbar {
       width: 100%;
+
     }
     .home-container {
       height: 100%;

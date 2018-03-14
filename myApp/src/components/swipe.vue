@@ -26,8 +26,6 @@
     width: calc(100% - 20px);
     margin: 10px auto;
     height: 100px;
-    /*border-radius: 20px;*/
-    /*overflow: hidden;*/
     .mint-swipe {
 
     }
@@ -44,11 +42,8 @@
       opacity: 1;
     }
     .mint-swipe-items-wrap {
-      border-radius: 20px;
     }
     .mint-swipe-item {
-      border-radius: 20px;
-      overflow: hidden;
       img {
         width: 100%;
         height: 100%;
