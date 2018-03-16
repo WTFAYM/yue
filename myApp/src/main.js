@@ -10,6 +10,9 @@ import touch from 'vue-directive-touch'
 import VueTouchRipple from 'vue-touch-ripple'
 import 'vue-touch-ripple/dist/vue-touch-ripple.css'
 import store from './store/index'
+import axios from 'axios'
+
+Vue.prototype.$axios = axios;
 
 Vue.use(VueTouchRipple);
 Vue.use(MintUI);

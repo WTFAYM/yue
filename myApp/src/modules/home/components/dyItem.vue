@@ -23,13 +23,17 @@
         <img src="../../../assets/img/01.jpg">
       </div>
     </div>
-    <div class="dyItem-bottom">
-      <div class="dyItem-comment">
+    <div class="dyItem-bottom" v-if="comment">
+      <div class="dyItem-comment" @click="toDetail()">
         <img src="../../../assets/icon/comment-l.png">
         <span class="dyItem-comment-count">10</span>
       </div>
-      <div class="dyItem-comment">
+      <div class="dyItem-comment" @click="like()" v-if="unLike">
         <img src="../../../assets/icon/like.png">
+        <span class="dyItem-comment-count">11</span>
+      </div>
+      <div class="dyItem-comment" @click="unlike()" v-else>
+        <img src="../../../assets/icon/liked.png">
         <span class="dyItem-comment-count">11</span>
       </div>
     </div>
@@ -40,10 +44,28 @@
     data() {
       return {
         dynamic: null,
+        unLike: true,
+      }
+    },
+    props: {
+      comment: {
+        default: true
       }
     },
     created() {
       this.dynamic = {}
+    },
+    methods: {
+      like() {
+        this.unLike = false;
+      },
+      unlike() {
+        this.unLike = true;
+      },
+      toDetail() {
+//        点击时将资料传过去
+        this.$router.push({name: 'dynamic', params: {data: {dataList: [1, 2]}}})
+      }
     }
   }
 </script>

@@ -172,7 +172,7 @@
       background-color: #fa729a;
       display: flex;
       justify-content: space-between;
-      height: 50px;
+      height: 40px;
       padding: 0 10px;
       align-items: center;
       .back-box {
@@ -206,7 +206,7 @@
       }
     }
     .register-container {
-      height: calc(100% - 50px);
+      height: calc(100% - 40px);
       overflow: hidden;
       position: relative;
     }

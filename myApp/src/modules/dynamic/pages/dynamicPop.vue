@@ -14,8 +14,8 @@
         <mt-field placeholder="分享你的动态" type="textarea" rows="4" v-model="dynamicText"></mt-field>
       </div>
       <div class="dynamicPop-content-img">
-        <img v-for="(n,index) in 8" :key="index" src="../../../assets/img/01.jpg">
-        <img v-if="imgList.length < 9" src="../../../assets/icon/add.png" @click="addImg()">
+        <img v-for="(n,index) in 5" :key="index" src="../../../assets/img/01.jpg">
+        <img v-if="imgList.length < 6" src="../../../assets/icon/add.png" @click="addImg()">
       </div>
     </div>
     <div class="dynamicPop-btn">
@@ -37,7 +37,7 @@
       closePop() {
         this.$emit('hideDynamicPop');
       },
-      addImg(){
+      addImg() {
 //        添加上传图片
       },
       push() {
@@ -57,6 +57,7 @@
     width: 100vw;
     height: 100vh;
     background: #f6f6f6;
+    overflow: hidden;
     .dyn-statubar {
       height: 20px;
       background-color: #fa729a;
@@ -64,7 +65,7 @@
     .dynamicPop-Header {
       background-color: #fa729a;
       display: flex;
-      height: 50px;
+      height: 40px;
       padding: 0 10px;
       align-items: center;
       text-align: center;
@@ -93,7 +94,8 @@
       }
     }
     .dynamicPop-content {
-
+      height: calc(100vh - 60px - 45px);
+      overflow: scroll;
       .dynamicPop-content-text {
         font-size: 14px;
         .mint-field-core {
@@ -116,7 +118,7 @@
     }
     .dynamicPop-btn {
       position: absolute;
-      bottom: 30px;
+      bottom: 3px;
       left: 0;
       right: 0;
       padding: 0 10px;

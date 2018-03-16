@@ -57,14 +57,14 @@ module.exports = {
 
     /**
     * Clear web history in this web view.
-    * Instead of BACK button loading the previous web page, it will exit the app.
+    * Instead of BACK button loading the previous web pages, it will exit the app.
     */
     clearHistory:function() {
         exec(null, null, APP_PLUGIN_NAME, "clearHistory", []);
     },
 
     /**
-    * Go to previous page displayed.
+    * Go to previous pages displayed.
     * This is the same as pressing the backbutton on Android device.
     */
     backHistory:function() {

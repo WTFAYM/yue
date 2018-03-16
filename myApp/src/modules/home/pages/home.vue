@@ -20,7 +20,7 @@
           </mt-tab-item>
         </mt-tabbar>
       </div>
-      <div class="home-tab">
+      <div class="home-tab" :class="isTop?'m40':''">
         <div class="home-tab-container">
           <mt-tab-container class="page-tabbar-tab-container" v-model="active" swipeable>
             <mt-tab-container-item id="0">
@@ -128,13 +128,6 @@
           this.$refs.loadmore.onTopLoaded();
         }, 1500);
       },
-//      handleHomeScroll() {
-//        if (this.$refs.container.scrollTop >= 50) {
-//          this.isTop = true;
-//        } else {
-//          this.isTop = false;
-//        }
-//      },
       handleSearchPop() {
         this.showSearchPop = true;
       },
@@ -146,11 +139,18 @@
     },
     watch: {},
     mounted() {
+      let that = this;
       (function (doc) {
         let tab = document.querySelector('.home-tabbar');
         let tabOffsetTop = tab.offsetTop;
         doc.addEventListener('scroll', function () {
-          doc.scrollTop >= tabOffsetTop - 20 ? tab.classList.add('fixed') : tab.classList.remove('fixed');
+          if (doc.scrollTop >= tabOffsetTop - 20) {
+            tab.classList.add('fixed');
+            that.isTop = true;
+          } else {
+            tab.classList.remove('fixed');
+            that.isTop = false;
+          }
         });
       })(document.querySelector('.home-container'));
     },
@@ -163,6 +163,9 @@
 </script>
 
 <style lang="scss">
+  .m40 {
+    margin-top: 40px;
+  }
 
   .home {
     height: calc(100% - 55px);
@@ -171,7 +174,6 @@
     }
     .home-tabbar {
       width: 100%;
-
     }
     .home-container {
       height: 100%;

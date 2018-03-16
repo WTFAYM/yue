@@ -30,7 +30,7 @@
           <span>发起活动</span>
         </div>
       </div>
-      <div class="userPop-menuItem" ripple="ripple">
+      <div class="userPop-menuItem" ripple="ripple" @click="toHistory()">
         <div class="userPop-menuItem-icon">
           <img src="../../../assets/icon/历史记录.png">
         </div>
@@ -38,7 +38,7 @@
           <span>历史记录</span>
         </div>
       </div>
-      <div class="userPop-menuItem" ripple="ripple">
+      <div class="userPop-menuItem" ripple="ripple" @click="toFollow()">
         <div class="userPop-menuItem-icon">
           <img src="../../../assets/icon/我的关注.png">
         </div>
@@ -46,7 +46,7 @@
           <span>我的关注</span>
         </div>
       </div>
-      <div class="userPop-menuItem" ripple="ripple">
+      <div class="userPop-menuItem" ripple="ripple" @click="toCS()">
         <div class="userPop-menuItem-icon">
           <img src="../../../assets/icon/客服.png">
         </div>
@@ -148,6 +148,15 @@
       },
       toActive() {
         this.$router.push({name: 'active_add'});
+      },
+      toHistory() {
+        this.$router.push({name: 'history'});
+      },
+      toFollow() {
+        this.$router.push({name: 'follow_list'});
+      },
+      toCS() {
+        this.$router.push({name: 'CS'});
       },
     },
     created() {

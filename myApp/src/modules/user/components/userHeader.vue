@@ -26,7 +26,7 @@
   .userHeader {
     background-color: #fa729a;
     display: flex;
-    height: 50px;
+    height: 40px;
     padding: 0 10px;
     align-items: center;
     text-align: center;

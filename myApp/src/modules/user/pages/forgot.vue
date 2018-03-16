@@ -203,7 +203,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      height: 50px;
+      height: 40px;
       padding: 0 10px;
     }
     .back-box {
@@ -237,7 +237,7 @@
     }
     .forgot-container {
       position: relative;
-      height: calc(100% - 50px);
+      height: calc(100% - 40px);
       overflow: hidden;
       .form-box {
         padding-top: 20%;

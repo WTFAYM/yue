@@ -12,7 +12,7 @@
         <param name="android-package" value="org.apache.cordova.splashscreen.SplashScreen" />
         <param name="onload" value="true" />
     </feature>
-    <name>yuepao</name>
+    <name>约跑</name>
     <description>
         A sample Apache Cordova application that responds to the deviceready event.
     </description>
