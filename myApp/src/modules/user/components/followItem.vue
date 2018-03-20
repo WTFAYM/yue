@@ -39,6 +39,7 @@
     flex-wrap: nowrap;
     justify-content: space-between;
     align-items: center;
+    background: white;
     .followItem-user {
       display: flex;
       align-items: center;
@@ -71,6 +72,7 @@
       }
       .mint-button {
         width: 2rem;
+        height: 30px;
         &:active {
           color: white;
           background: #fa729a;

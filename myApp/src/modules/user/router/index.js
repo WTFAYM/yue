@@ -5,6 +5,11 @@ export default [
     component: resolve => require(['../pages/info.vue'], resolve),
   },
   {
+    path: "/userAlert",
+    name: "user_alert",
+    component: resolve => require(['../pages/infoAlert.vue'], resolve),
+  },
+  {
     path: "/login",
     name: "login",
     component: resolve => require(['../pages/login.vue'], resolve),

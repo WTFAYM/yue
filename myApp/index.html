@@ -9,7 +9,6 @@
   <title>约跑</title>
   <link rel="stylesheet" type="text/css" href="./static/css/font-icon/iconfont.css">
   <link rel="stylesheet" type="text/css" href="./static/css/reset.css">
-  <link rel="SHORTCUT ICON" href="favicon.ico"/>
   <script>
     (function (doc, win) {
       var docEl = doc.documentElement,
@@ -25,6 +24,19 @@
       doc.addEventListener('DOMContentLoaded', recalc, false);
       recalc()
     })(document, window)
+//    var hiddenProperty = 'hidden' in document ? 'hidden' :
+//      'webkitHidden' in document ? 'webkitHidden' :
+//        'mozHidden' in document ? 'mozHidden' :
+//          null;
+//    var visibilityChangeEvent = hiddenProperty.replace(/hidden/i, 'visibilitychange');
+//    var onVisibilityChange = function () {
+//      if (!document[hiddenProperty]) {
+//        console.log('页面非激活');
+//      } else {
+//        console.log('页面激活')
+//      }
+//    }
+//    document.addEventListener(visibilityChangeEvent, onVisibilityChange);
   </script>
 </head>
 <body>

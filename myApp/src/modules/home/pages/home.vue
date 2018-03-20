@@ -13,10 +13,10 @@
             热门
           </mt-tab-item>
           <mt-tab-item id="1">
-            校内
+            树洞
           </mt-tab-item>
           <mt-tab-item id="2">
-            校外
+            专题
           </mt-tab-item>
         </mt-tabbar>
       </div>
@@ -49,11 +49,13 @@
               </mt-loadmore>
             </mt-tab-container-item>
             <mt-tab-container-item id="1">
-              <!---->
-              热门
+              <secret v-for="(item,index) in 10" :key="index"></secret>
             </mt-tab-container-item>
             <mt-tab-container-item id="2">
-
+              <subject></subject>
+              <subject></subject>
+              <subject></subject>
+              <subject></subject>
             </mt-tab-container-item>
           </mt-tab-container>
         </div>
@@ -73,12 +75,16 @@
   import searchPop from '../components/searchPop.vue'
   import activity from '../components/activity.vue'
   import homeHeader from '../components/homeHeader.vue'
+  import secret from '../components/secret.vue'
+  import subject from '../components/subject.vue'
 
   export default {
     components: {
       homeHeader,
       searchPop,
-      activity
+      activity,
+      secret,
+      subject
     },
     data() {
       return {

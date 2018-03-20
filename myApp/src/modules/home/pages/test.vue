@@ -3,6 +3,9 @@
     <text-item v-model="value"></text-item>
     <button @click="handleClick()">点击查看model值</button>
     <button @click="changeValue()">点击改变model值</button>
+    <div class="back">
+
+    </div>
   </div>
 </template>
 
@@ -24,7 +27,6 @@
       },
       changeValue() {
         this.value = '10';
-        console.log("Im")
       }
     },
     created() {
@@ -40,5 +42,10 @@
   .text {
     height: 100vh;
     overflow-y: scroll;
+  }
+
+  .back {
+    width: 100%;
+    height: 200px;
   }
 </style>

@@ -44,7 +44,8 @@
     data() {
       return {
         showSearchPop: false,
-        list: [
+        list:
+          [
           {
             name: '跑步',
             img: 'assets/classify/跑步.png',

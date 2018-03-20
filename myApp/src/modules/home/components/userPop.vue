@@ -22,6 +22,14 @@
           <span>首页</span>
         </div>
       </div>
+      <div class="userPop-menuItem" ripple="ripple" @click="toTree()">
+        <div class="userPop-menuItem-icon">
+          <img src="../../../assets/icon/tree.png">
+        </div>
+        <div class="userPop-menuItem-title">
+          <span>树洞</span>
+        </div>
+      </div>
       <div class="userPop-menuItem" ripple="ripple" @click="toActive()">
         <div class="userPop-menuItem-icon">
           <img src="../../../assets/icon/添加.png">
@@ -145,6 +153,9 @@
         this.$store.commit('setSelected', 0);
         this.$emit('hideUserPop');
         this.$router.push({name: 'home_home'})
+      },
+      toTree(){
+        this.$router.push({name: 'tree_add'});
       },
       toActive() {
         this.$router.push({name: 'active_add'});

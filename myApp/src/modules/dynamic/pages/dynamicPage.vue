@@ -12,17 +12,16 @@
       <div class="comment-all">
         <p>没有更多评论了哦！</p>
       </div>
-
     </div>
     <div class="dynamicPage-btn">
       <div class="dynamicPage-btn-item">
-        <img src="../../../assets/icon/comment-l.png">
+        <img src="../../../assets/icon/comment-l.png">{{commentCount}}
       </div>
       <div class="dynamicPage-btn-item" v-if="unLike" @click="like()">
-        <img src="../../../assets/icon/like.png">
+        <img src="../../../assets/icon/like.png">{{likeCount}}
       </div>
       <div class="dynamicPage-btn-item" v-else @click="unlike()">
-        <img src="../../../assets/icon/liked.png">
+        <img src="../../../assets/icon/liked.png">{{likeCount}}
       </div>
     </div>
   </div>
@@ -39,7 +38,9 @@
     },
     data() {
       return {
-        unLike: true
+        unLike: true,
+        commentCount: 10,
+        likeCount: 20
       }
     },
     created() {
@@ -53,6 +54,7 @@
           duration: 1500,
           className: 'dynamicPageToast'
         });
+        this.likeCount++;
         this.unLike = false;
       },
       unlike() {
@@ -61,6 +63,7 @@
           duration: 1500,
           className: 'dynamicPageToast'
         });
+        this.likeCount--;
         this.unLike = true;
       }
     }

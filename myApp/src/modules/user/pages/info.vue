@@ -9,8 +9,10 @@
         </div>
       </div>
       <div class="info-content">
-        <div class="info-avatar"></div>
-        <div class="more-info">
+        <div class="info-avatar">
+          <img src="http://139.199.188.40/img/01.jpg">
+        </div>
+        <div class="more-info" @click="toInfo()">
           账号资料
         </div>
         <div class="info-name">
@@ -34,20 +36,28 @@
       <div class="info-tab">
         <mt-tabbar v-model="tabIndex">
           <mt-tab-item id="0">
-            我的发布
+            我的动态
           </mt-tab-item>
           <mt-tab-item id="1">
-            我的参与
+            我的评论
+          </mt-tab-item>
+          <mt-tab-item id="2">
+            我的点赞
           </mt-tab-item>
         </mt-tabbar>
       </div>
       <div class="info-tab-container">
         <mt-tab-container class="page-tabbar-tab-container" v-model="tabIndex" swipeable>
           <mt-tab-container-item id="0">
-            我的发布
+            <dy-item></dy-item>
+            <dy-item></dy-item>
+            <dy-item></dy-item>
           </mt-tab-container-item>
           <mt-tab-container-item id="1">
-            我的参与
+
+          </mt-tab-container-item>
+          <mt-tab-container-item id="2">
+
           </mt-tab-container-item>
         </mt-tab-container>
       </div>
@@ -55,8 +65,12 @@
   </div>
 </template>
 <script>
+  import dyItem from '../../home/components/dyItem.vue'
 
   export default {
+    components: {
+      dyItem
+    },
     data() {
       return {
         userInfo: null,
@@ -65,7 +79,7 @@
     },
     created() {
       this.userInfo = {
-        avatar: '',
+        avatar: 'http://139.199.188.40/img/01.jpg',
         name: 'WTFAYM',
         gender: '',
         introduce: '这个人懒死了，什么都没有写'
@@ -74,6 +88,9 @@
     methods: {
       back() {
         this.$router.back();
+      },
+      toInfo() {
+        this.$router.push({name: 'user_alert'});
       }
     }
   }
@@ -95,7 +112,7 @@
         left: 0;
         width: 100%;
         height: 100%;
-        z-index: -1;
+        z-index: 2;
         background: rgba(0, 0, 88, .4);
       }
       .info-content {
@@ -104,12 +121,14 @@
         top: 25%;
         width: 80%;
         overflow: hidden;
+        z-index: 10;
       }
       .more-info {
+        border: 1px solid #eee;
         position: absolute;
         right: 0;
         top: 0;
-        color: white;
+        color: #eee;
         padding: 5px;
       }
       .info-avatar {
@@ -117,6 +136,11 @@
         height: 98px;
         border-radius: 50px;
         border: 1px solid #fff;
+        overflow: hidden;
+        img {
+          width: 98px;
+          height: 98px;
+        }
       }
       .info-name {
         padding: 10px 0;
@@ -160,6 +184,7 @@
         margin-left: 10px;
         position: relative;
         overflow: hidden;
+        z-index: 10;
         img {
           width: 40px;
           height: 40px;
@@ -175,19 +200,55 @@
       position: relative;
     }
     .info-tab {
+
       .mint-tabbar {
         position: relative;
       }
+      .mint-tabbar > .mint-tab-item.is-selected {
+        color: #fa729a;
+        background: none;
+      }
+      .mint-tabbar {
+        position: relative;
+        background-size: 100% 0;
+        .mint-tab-item-label {
+          font-size: 14px;
+        }
+        a {
+          color: #fa729a;
+        }
+        .is-selected {
+          color: #fa729a;
+          &:after {
+            content: "";
+            width: 50%;
+            margin: 0 auto;
+            height: 3px;
+            border-radius: 3px;
+            box-shadow: 1px 0;
+            display: block;
+            top: 7px;
+            position: relative;
+            background-color: #fa729a;
+          }
+        }
+      }
+      .mint-tab-item-label {
+        font-size: 16px;
+        padding: 5px 0;
+      }
     }
     .info-tab-container {
-      height: 100%;
-      min-height: calc(100% - 26px);
+      height: calc(100% - 44px);
       .mint-tab-container {
         height: 100%;
       }
       .mint-tab-container-wrap {
         height: 100%;
       }
+    }
+    .mint-tab-container-item {
+      overflow: scroll;
     }
   }
 </style>

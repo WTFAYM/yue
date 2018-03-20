@@ -10,7 +10,7 @@
     </div>
     <div class="dialogLeftItem dialogItem" v-else>
       <div class="dialogItem-avatar">
-        <img src="../../../assets/img/01.jpg">
+        <img src="../../../assets/img/robot.png">
       </div>
       <div class="dialogItem-content">
         <p>{{data.text}}</p>

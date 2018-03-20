@@ -4,6 +4,9 @@ const mutations = {
   },
   setSelected: (state, selected) => {
     state.selected = selected;
+  },
+  setMsgPoint: (state, data) => {
+    state.messageStore[data.key] = data.value;
   }
 };
 export default mutations

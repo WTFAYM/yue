@@ -26,25 +26,29 @@
     <div class="dyItem-bottom" v-if="comment">
       <div class="dyItem-comment" @click="toDetail()">
         <img src="../../../assets/icon/comment-l.png">
-        <span class="dyItem-comment-count">10</span>
+        <span class="dyItem-comment-count">{{commentCount}}</span>
       </div>
       <div class="dyItem-comment" @click="like()" v-if="unLike">
         <img src="../../../assets/icon/like.png">
-        <span class="dyItem-comment-count">11</span>
+        <span class="dyItem-comment-count">{{likeCount}}</span>
       </div>
       <div class="dyItem-comment" @click="unlike()" v-else>
         <img src="../../../assets/icon/liked.png">
-        <span class="dyItem-comment-count">11</span>
+        <span class="dyItem-comment-count">{{likeCount}}</span>
       </div>
     </div>
   </div>
 </template>
 <script>
+  import {Toast} from 'mint-ui';
+
   export default {
     data() {
       return {
         dynamic: null,
         unLike: true,
+        commentCount: 10,
+        likeCount: 20
       }
     },
     props: {
@@ -58,9 +62,21 @@
     methods: {
       like() {
         this.unLike = false;
+        this.likeCount++;
+        Toast({
+          message: '点赞成功～～',
+          duration: 1500,
+          className: 'dyItemToast'
+        });
       },
       unlike() {
         this.unLike = true;
+        this.likeCount--;
+        Toast({
+          message: '取消点赞～～',
+          duration: 1500,
+          className: 'dyItemToast'
+        });
       },
       toDetail() {
 //        点击时将资料传过去
@@ -147,5 +163,12 @@
         display: inline-block;
       }
     }
+  }
+
+  .dyItemToast {
+    width: 90%;
+    border-radius: 20px;
+    top: 90% !important;
+    background: rgba(0, 0, 0, 0.5) !important;
   }
 </style>

@@ -8,7 +8,7 @@
         <div class="his-activeItem-title">
           <span>震惊，**竟然在***做这种事情！！</span>
         </div>
-        <span class="his-activeItem-time">2018-03-22 10:09</span>
+        <span class="his-activeItem-time">{{date | DateTran}}</span>
       </div>
     </div>
     <div class="his-activeItem-bottom" v-if="false">
@@ -24,12 +24,17 @@
 <script>
   export default {
     data() {
-      return {}
+      return {
+        date: null,
+      }
     },
     methods: {
       toActiveItem() {
-//        this.$router.push();
+        this.$router.push({name: 'active_detail', params: {actId: 1}});
       }
+    },
+    created() {
+      this.date = new Date();
     }
   }
 </script>

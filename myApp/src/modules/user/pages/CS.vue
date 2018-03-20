@@ -3,7 +3,7 @@
   <div class="CS">
     <statu-bar></statu-bar>
     <detail-header :title="'客服小范'"></detail-header>
-    <div class="CS-container">
+    <div class="CS-container" ref="csContainer">
       <dialog-item v-for="(item,index) in dialogData" :data="item"></dialog-item>
     </div>
     <div class="CS-inputBox">
@@ -80,6 +80,7 @@
     },
     methods: {
       send() {
+        let that = this;
         if (this.text == '') {
           Toast({
             message: '不能发送空内容哦～～',
@@ -92,6 +93,27 @@
             avatar: '',
             self: true
           });
+          setTimeout(() => {
+            this.$refs.csContainer.scrollTop = this.$refs.csContainer.scrollHeight
+          }, 0);
+          this.$axios({
+            url: '/api',
+            method: 'post',
+            data: {
+              'key': 'a7c164d6200c4dca9793117efcd453bf',
+              'info': this.text,
+              'userid': '1'
+            },
+            withCredentials: true
+          }).then(function (response) {
+            that.dialogData.push({
+              text: response.data.text,
+              self: false
+            });
+            setTimeout(() => {
+              that.$refs.csContainer.scrollTop = that.$refs.csContainer.scrollHeight
+            }, 0);
+          });
           this.text = "";
         }
       }
@@ -102,11 +124,6 @@
           text: '您好，这里是机器人小范，有什么可以帮到您？',
           avatar: '',
           self: false
-        },
-        {
-          text: '测试',
-          avatar: '',
-          self: true
         },
       ]
     }
@@ -120,6 +137,7 @@
     padding-top: 20px;
     .CS-container {
       height: calc(100% - 40px - 50px);
+      overflow: scroll;
     }
     .CS-inputBox {
       height: 50px;

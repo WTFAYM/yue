@@ -6,6 +6,7 @@ import router from './router'
 import MintUI from 'mint-ui'
 import 'mint-ui/lib/style.css'
 import Components from './components/myGlobalComponent'
+import filters from './filters'
 import touch from 'vue-directive-touch'
 import VueTouchRipple from 'vue-touch-ripple'
 import 'vue-touch-ripple/dist/vue-touch-ripple.css'
@@ -18,7 +19,7 @@ Vue.use(VueTouchRipple);
 Vue.use(MintUI);
 Vue.use(touch);
 Vue.use(Components);
-
+Vue.use(filters);
 Vue.config.productionTip = false;
 
 new Vue({

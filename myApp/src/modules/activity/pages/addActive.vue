@@ -10,7 +10,7 @@
         <mt-field label="地点" typeof="text" placeholder="请输入活动地点" v-model="address"></mt-field>
       </div>
       <div class="addActive-label addActive-item">
-        <span>标签</span>
+        <mt-cell title="标签" :value="labelText" @click.native="choseLabel()"></mt-cell>
       </div>
       <div class="addActive-address addActive-item">
         <mt-field label="人数上限" type="tel" placeholder="请输入人数上限" :attr="{ maxlength: 3}" v-model="people"></mt-field>
@@ -37,14 +37,23 @@
       ref="start"
       type="datetime"
       :startDate="startMinDate"
+      :endDate="startMaxDate"
       @confirm="handleStartConfirm">
     </mt-datetime-picker>
     <mt-datetime-picker
       ref="end"
       type="datetime"
       :startDate="endMinDate"
+      :endDate="endMaxDate"
       @confirm="handleEndConfirm">
     </mt-datetime-picker>
+    <mt-popup
+      class="labelPop"
+      v-model="labelPop"
+      position="bottom"
+      popup-transition="popup-slide">
+      <mt-picker :slots="slots" valueKey="name" @change="onValuesChange"></mt-picker>
+    </mt-popup>
   </div>
 </template>
 <script>
@@ -57,48 +66,143 @@
     data() {
       return {
         title: '',
-        label: '',
         time: '',
         address: '',
         introduce: '',
         people: '',
+        labelText: '',
+        labelId: '',
+        labelPop: false,
         img: '',
         startTime: '',
-        startTimePick: null,
-        endTime: '',
         startMinDate: null,
+        startMaxDate: null,
+        endTime: '',
         endMinDate: null,
-        endTimePick: null,
-      }
-    },
-    filters: {
-      DateTran(value) {
-        if (value) {
-          let tmp_month = value.getMonth() + 1;
-          let month = tmp_month > 10 ? '' + tmp_month : '0' + tmp_month;
-          let day = value.getDate() > 10 ? '' + value.getDate() : '0' + value.getDate();
-          let temp_h = value.getHours();
-          let h = temp_h > 10 ? '' + temp_h : '0' + temp_h;
-          let temp_m = value.getMinutes();
-          let m = temp_m > 10 ? '' + temp_m : '0' + temp_m;
-          return value.getFullYear() + '-' + month + '-' + day + ' ' + h + ':' + m;
-        } else {
-          return value
-        }
+        endMaxDate: null,
+        slots: [
+          {
+            flex: 1,
+            values: [
+              {
+                name: '跑步',
+                img: 'assets/classify/跑步.png',
+                id: 0,
+              },
+              {
+                name: '舞蹈',
+                img: 'assets/classify/舞蹈2.png',
+                id: 1,
+              },
+              {
+                name: '自行车',
+                img: 'assets/classify/自行车.png',
+                id: 2,
+              },
+              {
+                name: '摄影',
+                img: 'assets/classify/摄影旅行.png',
+                id: 3,
+              },
+              {
+                name: '音乐',
+                img: 'assets/classify/音乐.png',
+                id: 4
+              },
+              {
+                name: '阅读',
+                img: 'assets/classify/阅读.png',
+                id: 5,
+              },
+              {
+                name: '篮球',
+                img: 'assets/classify/篮球.png',
+                id: 6,
+              },
+              {
+                name: '足球',
+                img: 'assets/classify/足球.png',
+                id: 7,
+              },
+              {
+                name: '网球',
+                img: 'assets/classify/网球.png',
+                id: 8,
+              },
+              {
+                name: '羽毛球',
+                img: 'assets/classify/羽毛球.png',
+                id: 9,
+              },
+              {
+                name: '滑板',
+                img: 'assets/classify/滑板.png',
+                id: 10,
+              },
+              {
+                name: '轮滑',
+                img: 'assets/classify/滑冰鞋.png',
+                id: 11,
+              },
+              {
+                name: '游戏',
+                img: 'assets/classify/游戏.png',
+                id: 12,
+              },
+              {
+                name: '社团',
+                img: 'assets/classify/社团活动.png',
+                id: 13
+              },
+              {
+                name: '兼职',
+                img: 'assets/classify/work.png',
+                id: 14
+              },
+              {
+                name: '比赛',
+                img: 'assets/classify/比赛.png',
+                id: 15
+              },
+              {
+                name: '公益',
+                img: 'assets/classify/公益中心.png',
+                id: 16
+              },
+              {
+                name: '其他',
+                img: 'assets/classify/其他.png',
+                id: 17
+              },
+
+            ],
+            className: 'slot1',
+            textAlign: 'center'
+          }
+        ],
       }
     },
     created() {
-      this.startMinDate = new Date();
-      this.endMinDate = this.startMinDate;
-      this.startTimePick = this.startMinDate;
-      this.endTimePick = this.startMinDate;
+      let temp = new Date()
+      this.startMinDate = temp;
+      this.startTime = temp;
+      this.endMinDate = temp;
+      let newDate = new Date();
+      newDate.setTime(temp.getTime() + 30 * 24 * 3600 * 1000);
+      this.startMaxDate = newDate;
+      newDate.setTime(temp.getTime() + 60 * 24 * 3600 * 1000);
+      this.endMaxDate = newDate;
     },
     methods: {
       push() {
 
       },
-      onValuesChange() {
-
+      onValuesChange(picker, values) {
+        this.labelText = values[0].name;
+        this.labelId = values[0].id;
+      },
+      choseLabel() {
+        this.labelPop = true
       },
       handleStartConfirm(value) {
         this.startTime = value;
@@ -106,16 +210,15 @@
       },
       handleEndConfirm(value) {
         this.endTime = value;
+        this.startMaxDate = value;
       },
       choseStartTime() {
         this.startMinDate = new Date();
         this.$refs.start.open();
-        console.log("chose start time")
       },
       choseEndTime() {
         this.endMinDate = new Date();
         this.$refs.end.open();
-        console.log("chose end time")
       },
       addImg() {
 
@@ -165,7 +268,7 @@
         }
       }
       .addActive-label {
-        
+
       }
     }
     .addActive-btn {
@@ -183,5 +286,10 @@
         }
       }
     }
+  }
+
+  .labelPop {
+    width: 100vw;
+
   }
 </style>

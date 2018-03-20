@@ -8,6 +8,11 @@ Vue.use(Vuex);
 const state = {
   selected: 0,
   userInfo: null,
+  messageStore: {
+    showAnswerPoint: true,
+    showLikePoint: true,
+    showSystemPoint: true,
+  }
 }
 
 export default new Vuex.Store({
