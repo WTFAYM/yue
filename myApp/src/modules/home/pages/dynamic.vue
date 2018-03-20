@@ -53,7 +53,7 @@
     height: calc(100% - 55px);
     overflow-y: scroll;
     .searchPop {
-      transition: .5s ease-out;
+      transition: .3s ease-out;
     }
     .search-box {
       display: flex;

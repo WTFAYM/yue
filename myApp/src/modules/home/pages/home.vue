@@ -171,12 +171,15 @@
 <style lang="scss">
   .m40 {
     margin-top: 40px;
+    .mint-tab-container-item {
+      overflow: scroll;
+    }
   }
 
   .home {
     height: calc(100% - 55px);
     .searchPop {
-      transition: .5s ease-out;
+      transition: .3s ease-out;
     }
     .home-tabbar {
       width: 100%;
@@ -267,7 +270,6 @@
       .mint-tab-container-item {
         min-height: calc(100vh - 57px - 55px);
       }
-      /*---------------------------------*/
       .home-tab-container {
         .loading-background, .mint-loadmore-top span {
           color: #fa729a;

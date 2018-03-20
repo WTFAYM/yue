@@ -7,6 +7,7 @@
         </div>
         <div class="actItem-bottom">
           <span>运动吧！少年</span>
+          <span class="actItem-label">运动</span>
         </div>
       </div>
     </div>
@@ -25,27 +26,29 @@
 
 <style lang="scss">
   .activity {
+    padding: 0 10px;
     .actItemList {
       display: flex;
       flex-wrap: wrap;
       width: 100%;
+      justify-content: space-between;
     }
     .actItem {
-      width: 50%;
+      width: 48%;
       height: 150px;
+      margin: 8px 0;
       .actItem-top {
         height: 60%;
         img {
-          width: 90%;
-          max-width: 100%;
+          width: 100%;
           max-height: 100%;
-          margin: 0 auto;
         }
       }
       .actItem-bottom {
         overflow: hidden;
         height: calc(40% - 10px);
         padding: 5px;
+        background: white;
         span {
           width: 100%;
           text-align: left;
@@ -53,6 +56,10 @@
           white-space: nowrap;
           overflow: hidden;
           display: inline-block;
+        }
+        .actItem-label {
+          color: #fa729a;
+          font-size: 12px;
         }
       }
     }

@@ -46,98 +46,98 @@
         showSearchPop: false,
         list:
           [
-          {
-            name: '跑步',
-            img: 'assets/classify/跑步.png',
-            id: 0,
-          },
-          {
-            name: '舞蹈',
-            img: 'assets/classify/舞蹈2.png',
-            id: 1,
-          },
-          {
-            name: '自行车',
-            img: 'assets/classify/自行车.png',
-            id: 2,
-          },
-          {
-            name: '摄影',
-            img: 'assets/classify/摄影旅行.png',
-            id: 3,
-          },
-          {
-            name: '音乐',
-            img: 'assets/classify/音乐.png',
-            id: 4
-          },
-          {
-            name: '阅读',
-            img: 'assets/classify/阅读.png',
-            id: 5,
-          },
-          {
-            name: '篮球',
-            img: 'assets/classify/篮球.png',
-            id: 6,
-          },
-          {
-            name: '足球',
-            img: 'assets/classify/足球.png',
-            id: 7,
-          },
-          {
-            name: '网球',
-            img: 'assets/classify/网球.png',
-            id: 8,
-          },
-          {
-            name: '羽毛球',
-            img: 'assets/classify/羽毛球.png',
-            id: 9,
-          },
-          {
-            name: '滑板',
-            img: 'assets/classify/滑板.png',
-            id: 10,
-          },
-          {
-            name: '轮滑',
-            img: 'assets/classify/滑冰鞋.png',
-            id: 11,
-          },
-          {
-            name: '游戏',
-            img: 'assets/classify/游戏.png',
-            id: 12,
-          },
-          {
-            name: '社团',
-            img: 'assets/classify/社团活动.png',
-            id: 13
-          },
-          {
-            name: '兼职',
-            img: 'assets/classify/work.png',
-            id: 14
-          },
-          {
-            name: '比赛',
-            img: 'assets/classify/比赛.png',
-            id: 15
-          },
-          {
-            name: '公益',
-            img: 'assets/classify/公益中心.png',
-            id: 16
-          },
-          {
-            name: '其他',
-            img: 'assets/classify/其他.png',
-            id: 17
-          },
+            {
+              name: '跑步',
+              img: 'assets/classify/跑步.png',
+              id: 0,
+            },
+            {
+              name: '舞蹈',
+              img: 'assets/classify/舞蹈2.png',
+              id: 1,
+            },
+            {
+              name: '自行车',
+              img: 'assets/classify/自行车.png',
+              id: 2,
+            },
+            {
+              name: '摄影',
+              img: 'assets/classify/摄影旅行.png',
+              id: 3,
+            },
+            {
+              name: '音乐',
+              img: 'assets/classify/音乐.png',
+              id: 4
+            },
+            {
+              name: '阅读',
+              img: 'assets/classify/阅读.png',
+              id: 5,
+            },
+            {
+              name: '篮球',
+              img: 'assets/classify/篮球.png',
+              id: 6,
+            },
+            {
+              name: '足球',
+              img: 'assets/classify/足球.png',
+              id: 7,
+            },
+            {
+              name: '网球',
+              img: 'assets/classify/网球.png',
+              id: 8,
+            },
+            {
+              name: '羽毛球',
+              img: 'assets/classify/羽毛球.png',
+              id: 9,
+            },
+            {
+              name: '滑板',
+              img: 'assets/classify/滑板.png',
+              id: 10,
+            },
+            {
+              name: '轮滑',
+              img: 'assets/classify/滑冰鞋.png',
+              id: 11,
+            },
+            {
+              name: '游戏',
+              img: 'assets/classify/游戏.png',
+              id: 12,
+            },
+            {
+              name: '社团',
+              img: 'assets/classify/社团活动.png',
+              id: 13
+            },
+            {
+              name: '兼职',
+              img: 'assets/classify/work.png',
+              id: 14
+            },
+            {
+              name: '比赛',
+              img: 'assets/classify/比赛.png',
+              id: 15
+            },
+            {
+              name: '公益',
+              img: 'assets/classify/公益中心.png',
+              id: 16
+            },
+            {
+              name: '其他',
+              img: 'assets/classify/其他.png',
+              id: 17
+            },
 
-        ],
+          ],
       }
     },
     methods: {
@@ -212,7 +212,7 @@
     height: calc(100% - 55px);
     overflow-y: scroll;
     .searchPop {
-      transition: .5s ease-out;
+      transition: .3s ease-out;
     }
     .search-box {
       display: flex;

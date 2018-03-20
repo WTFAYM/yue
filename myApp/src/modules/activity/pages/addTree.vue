@@ -34,8 +34,6 @@
 
 <style lang="scss">
   .addTree {
-    height: calc(100% - 20px);
-    overflow: hidden;
     padding-top: 20px;
     .addTree-container {
       height: calc(100vh - 60px - 44px);
@@ -50,10 +48,7 @@
       }
     }
     .addTree-btn {
-      position: absolute;
-      bottom: 3px;
-      left: 0;
-      right: 0;
+      margin-top: 40px;
       padding: 0 10px;
       background: white;
       .mint-button--large {

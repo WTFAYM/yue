@@ -97,7 +97,7 @@
             this.$refs.csContainer.scrollTop = this.$refs.csContainer.scrollHeight
           }, 0);
           this.$axios({
-            url: '/api',
+            url: 'http://www.tuling123.com/openapi/api',
             method: 'post',
             data: {
               'key': 'a7c164d6200c4dca9793117efcd453bf',
