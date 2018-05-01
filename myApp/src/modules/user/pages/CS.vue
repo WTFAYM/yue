@@ -4,7 +4,7 @@
     <statu-bar></statu-bar>
     <detail-header :title="'客服小范'"></detail-header>
     <div class="CS-container" ref="csContainer">
-      <dialog-item v-for="(item,index) in dialogData" :data="item"></dialog-item>
+      <dialog-item v-for="(item,index) in dialogData" :key="index" :data="item"></dialog-item>
     </div>
     <div class="CS-inputBox">
       <div class="CS-input">

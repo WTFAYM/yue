@@ -5,9 +5,9 @@
     <div class="infoAlert-container">
       <div class="infoAlert-form">
         <div class="infoAlert-item">
-          <mt-cell title="头像" @click="avatar()">
+          <mt-cell title="头像" @click.native="avatar">
             <div class="infoAlert-avatar">
-              <img src="../../../assets/img/01.jpg" alt="">
+              <img :src="ava">
             </div>
           </mt-cell>
         </div>
@@ -47,6 +47,10 @@
     <div class="infoAlert-btn">
       <mt-button size="large" @click="push()">确认修改</mt-button>
     </div>
+    <mt-actionsheet
+      :actions="actions"
+      v-model="sheetVisible">
+    </mt-actionsheet>
   </div>
 </template>
 <script>
@@ -55,15 +59,18 @@
       return {
         username: "WTFAYM",
         gender: '男',
+        ava: 'http://139.199.188.40/img/dog.jpg',
         birthday: null,
         MinDate: null,
         MaxDate: null,
         introduce: "",
+        sheetVisible: false,
+        actions: []
       }
     },
     methods: {
       avatar() {
-
+        this.sheetVisible = true;
       },
       push() {
 
@@ -74,6 +81,44 @@
       },
       handleConfirm(value) {
         this.birthday = value;
+      },
+      photo() {
+        navigator.camera.getPicture(imageData => {
+          this.ava = "data:image/jpeg;base64," + imageData;
+        }, err => {
+
+        }, {
+          ity: 50,
+          destinationType: Camera.DestinationType.DATA_URL,
+          allowEdit: true,
+          sourceType: 1
+        });
+      },
+      dataURLtoFile: function (dataurl, filename) {
+        let arr = dataurl.split(',');
+        let mime = arr[0].match(/:(.*?);/)[1];
+        let bstr = window.atob(arr[1]);
+        let n = bstr.length;
+        let u8arr = new Uint8Array(n);
+        while (n--) {
+          u8arr[n] = bstr.charCodeAt(n)
+        }
+        let blob = new Blob([u8arr], {type: mime});
+        blob.lastModifiedDate = new Date();
+        blob.name = filename;
+        return blob
+      },
+      album() {
+        navigator.camera.getPicture(imageData => {
+          this.ava = imageData;
+        }, err => {
+
+        }, {
+          ity: 50,
+          destinationType: Camera.DestinationType.DATA_URL,
+          allowEdit: true,
+          sourceType: 2,
+        })
       }
     },
     created() {
@@ -83,19 +128,19 @@
       newDate.setTime(temp.getTime() - 100 * 12 * 30 * 24 * 3600 * 1000);
       this.MinDate = newDate;
       this.birthday = temp;
-
+      this.actions = [{name: '拍照', method: this.photo}, {name: '从相册选取', method: this.album}]
     }
   }
 </script>
 
 <style lang="scss">
   .infoAlert {
-    height: calc(100% - 20px);
+    /*height: calc(100% - 20px);*/
     overflow: hidden;
     padding-top: 20px;
     .infoAlert-container {
       position: relative;
-      height: calc(100% - 40px);
+      /*height: calc(100% - 40px);*/
       overflow: scroll;
     }
     .infoAlert-form {

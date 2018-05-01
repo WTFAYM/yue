@@ -13,7 +13,7 @@
         分类标签：
       </div>
       <div class="classify-box">
-        <div class="classify-item" v-for="(item ,index) in list" :key="index" ripple="ripple">
+        <div class="classify-item" v-for="(item ,index) in list" :key="index" ripple="ripple" @click="toClassify(item)">
           <div class="classify-item-top">
             <img :src="loadImg(item.img)">
           </div>
@@ -151,6 +151,9 @@
       },
       loadImg(url) {
         return require('@/' + url);
+      },
+      toClassify(item) {
+        this.$router.push({name: 'classify_page', params: {classify: item.name}})
       }
     },
     created() {

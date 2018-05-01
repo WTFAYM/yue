@@ -1,7 +1,7 @@
 <template>
   <div class="activity">
     <div v-if="datalist" class="actItemList">
-      <div class="actItem" v-for="(item ,index) in datalist" :key="index">
+      <div class="actItem" v-for="(item ,index) in datalist" :key="index" @click="toDetail(item)">
         <div class="actItem-top">
           <img src="../../../assets/img/start_1.jpg">
         </div>
@@ -19,7 +19,16 @@
       return {}
     },
     props: {
-      datalist: null
+      datalist: null,
+
+    },
+    methods: {
+      toDetail(item) {
+        this.$router.push({name: 'active_detail', params: {data:item}});
+
+      }
+    },
+    created(){
     }
   }
 </script>

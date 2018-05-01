@@ -1,6 +1,6 @@
 <template>
   <div class="followItem">
-    <div class="followItem-user">
+    <div class="followItem-user" @click.native="toUser(userInfo)">
       <div class="followItem-user-avatar">
         <img src="../../../assets/img/01.jpg">
       </div>
@@ -17,14 +17,24 @@
     props: {
       showBtn: {
         default: true
-      }
+      },
+      userInfo: null
     },
     data() {
       return {}
     },
     methods: {
+      toUser(info) {
+        this.$router.push({name: 'user_info', params: info});
+      },
       cancleFollow() {
-
+        MessageBox.confirm('确认取消关注该用户吗？', '提示').then(action => {
+          //确认事件
+          console.log(action);
+        }, err => {
+//          取消事件
+          console.log(err);
+        })
       }
     }
   }

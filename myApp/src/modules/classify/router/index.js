@@ -1,5 +1,7 @@
 export default [
   {
-    path:''
+    path: '/classifyPage',
+    name: 'classify_page',
+    component: resolve => require(['../pages/index.vue'], resolve),
   }
 ]

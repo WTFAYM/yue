@@ -28,9 +28,12 @@
         date: null,
       }
     },
+    props:{
+      info:null
+    },
     methods: {
-      toActiveItem() {
-        this.$router.push({name: 'active_detail', params: {actId: 1}});
+      toActiveItem(item) {
+        this.$router.push({name: 'active_detail', params: {data:item}});
       }
     },
     created() {

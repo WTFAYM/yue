@@ -14,7 +14,7 @@
       </div>
     </div>
     <div class="dynamicPage-btn">
-      <div class="dynamicPage-btn-item">
+      <div class="dynamicPage-btn-item" @click="editComment">
         <img src="../../../assets/icon/comment-l.png">{{commentCount}}
       </div>
       <div class="dynamicPage-btn-item" v-if="unLike" @click="like()">
@@ -29,7 +29,7 @@
 <script>
   import dyItem from '../../home/components/dyItem.vue'
   import commentItem from '../components/coment.vue'
-  import {Toast} from 'mint-ui';
+  import {Toast, MessageBox} from 'mint-ui';
 
   export default {
     components: {
@@ -65,6 +65,20 @@
         });
         this.likeCount--;
         this.unLike = true;
+      },
+      editComment() {
+        MessageBox({
+          title: '',
+          message: '请输入评论内容',
+          showInput: true,
+          $type: 'prompt',
+          confirmButtonText:'评论'
+        }).then(({value}) => {
+          console.log(value)
+        })
+      },
+      submitComment() {
+
       }
     }
   }

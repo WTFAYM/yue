@@ -1,6 +1,6 @@
 <template>
   <div class="swipe-box">
-    <mt-swipe :auto="0" :showIndicators="true">
+    <mt-swipe :auto="2000" :showIndicators="true">
       <mt-swipe-item>
         <img src="../assets/img/01.jpg">
       </mt-swipe-item>

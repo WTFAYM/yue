@@ -12,8 +12,12 @@
         <div class="info-avatar">
           <img src="http://139.199.188.40/img/01.jpg">
         </div>
-        <div class="more-info" @click="toInfo()">
+        <div v-if="true" class="more-info" @click="toInfo()">
           账号资料
+        </div>
+        <div v-else class="more-info">
+          <span v-if="true" @click="follow">+关注</span>
+          <span v-else @click="cancelFollow">取消关注</span>
         </div>
         <div class="info-name">
           <span class="name">{{userInfo.name}}</span>
@@ -32,7 +36,7 @@
         </div>
       </div>
     </div>
-    <div class="info-bottom">
+    <div v-if="true" class="info-bottom">
       <div class="info-tab">
         <mt-tabbar v-model="tabIndex">
           <mt-tab-item id="0">
@@ -62,14 +66,42 @@
         </mt-tab-container>
       </div>
     </div>
+    <div v-else class="info-bottom">
+      <div class="info-tab">
+        <mt-tabbar v-model="tabIndex">
+          <mt-tab-item id="0">
+            他的动态
+          </mt-tab-item>
+          <mt-tab-item id="1">
+            他的发起活动
+          </mt-tab-item>
+        </mt-tabbar>
+      </div>
+      <div class="info-tab-container">
+        <mt-tab-container class="page-tabbar-tab-container" v-model="tabIndex" swipeable>
+          <mt-tab-container-item id="0">
+            <dy-item></dy-item>
+            <dy-item></dy-item>
+            <dy-item></dy-item>
+          </mt-tab-container-item>
+          <mt-tab-container-item id="1">
+              <active-item></active-item>
+              <active-item></active-item>
+              <active-item></active-item>
+          </mt-tab-container-item>
+        </mt-tab-container>
+      </div>
+    </div>
   </div>
 </template>
 <script>
   import dyItem from '../../home/components/dyItem.vue'
-
+  import {MessageBox} from 'mint-ui';
+  import activeItem from '../components/activeItem.vue'
   export default {
     components: {
-      dyItem
+      dyItem,
+      activeItem
     },
     data() {
       return {
@@ -88,6 +120,24 @@
     methods: {
       back() {
         this.$router.back();
+      },
+      follow() {
+        MessageBox.confirm('确认关注该用户吗？', '提示').then(action => {
+          //确认事件
+          console.log(action)
+        }, err => {
+//          取消事件
+          console.log(err)
+        })
+      },
+      cancelFollow() {
+        MessageBox.confirm('确认取消关注该用户吗？', '提示').then(action => {
+          //确认事件
+          console.log(action)
+        }, err => {
+//          取消事件
+          console.log(err)
+        })
       },
       toInfo() {
         this.$router.push({name: 'user_alert'});
@@ -233,6 +283,7 @@
           }
         }
       }
+
       .mint-tab-item-label {
         font-size: 16px;
         padding: 5px 0;
@@ -249,6 +300,10 @@
     }
     .mint-tab-container-item {
       overflow: scroll;
+    }
+    .otherInfo-box {
+      height: 100%;
+      overflow-y: scroll;
     }
   }
 </style>

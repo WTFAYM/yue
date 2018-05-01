@@ -3,7 +3,7 @@
     <statu-bar></statu-bar>
     <detail-header :title="'当前活动'"></detail-header>
     <div class="currentAct-container">
-      <active-item v-for="(item,index) in 10" :key="index"></active-item>
+      <active-item v-for="(item,index) in 10" :key="index" :info="item"></active-item>
     </div>
   </div>
 </template>

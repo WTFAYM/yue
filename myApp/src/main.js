@@ -29,3 +29,20 @@ new Vue({
   components: {App},
   template: '<App/>'
 })
+
+// document.addEventListener('deviceready', function() {
+//     new Vue({
+//         el: '#app',
+//         router,
+//         store,
+//         template: '<App/>',
+//         components: { App }
+//     });
+//     // window.plugins.jPushPlugin.init();
+//     // window.plugins.jPushPlugin.setDebugMode(true);
+//     // window.plugins.jPushPlugin.getRegistrationID(function(registrationid){
+//     //      //将获取到的id存入服务端
+//     //          alert(registrationid);//这里可能获取不到，因为有网络延迟，可不在此处获取。下面会介绍。
+//     //          });
+//     // window.navigator.splashscreen.hide();
+// }, false);
